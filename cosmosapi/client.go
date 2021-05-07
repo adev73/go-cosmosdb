@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/adev73/go-cosmosdb/logging"
 	"github.com/pkg/errors"
-	"github.com/vippsas/go-cosmosdb/logging"
 )
 
 const (

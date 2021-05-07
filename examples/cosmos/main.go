@@ -3,11 +3,12 @@ package main
 import (
 	"time"
 
-	"github.com/alecthomas/repr"
-	"github.com/vippsas/go-cosmosdb/cosmos"
-	"github.com/vippsas/go-cosmosdb/cosmostest"
 	"log"
 	"os"
+
+	"github.com/adev73/go-cosmosdb/cosmos"
+	"github.com/adev73/go-cosmosdb/cosmostest"
+	"github.com/alecthomas/repr"
 )
 
 type MyModel struct {

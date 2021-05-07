@@ -86,6 +86,8 @@ func (ops ExecuteStoredProcedureOptions) AsHeaders() (map[string]string, error) 
 			return nil, err
 		}
 		headers[HEADER_PARTITIONKEY] = v
+	} else {
+		headers[HEADER_PARTITIONKEY] = "[]"
 	}
 	return headers, nil
 }

@@ -36,12 +36,12 @@ func resourceTypeFromLink(link string) (rLink, rType string) {
 	}
 
 	// Ensure link has leading '/'
-	if strings.HasPrefix(link, "/") == false {
+	if !strings.HasPrefix(link, "/") {
 		link = "/" + link
 	}
 
 	// Ensure link ends with '/'
-	if strings.HasSuffix(link, "/") == false {
+	if !strings.HasSuffix(link, "/") {
 		link = link + "/"
 	}
 

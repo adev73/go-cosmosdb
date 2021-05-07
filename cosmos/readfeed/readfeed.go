@@ -2,7 +2,8 @@ package readfeed
 
 import (
 	"fmt"
-	"github.com/vippsas/go-cosmosdb/cosmos"
+
+	"github.com/adev73/go-cosmosdb/cosmos"
 )
 
 type testDocument struct {

@@ -37,11 +37,13 @@ type CreateDocumentOptions struct {
 type DocumentResponse struct {
 	RUs          float64
 	SessionToken string
+	StatusCode   int //HTTP status code of response, saves searching error messages for 404s, etc.
 }
 
 func parseDocumentResponse(resp *http.Response) (parsed DocumentResponse) {
 	parsed.SessionToken = resp.Header.Get(HEADER_SESSION_TOKEN)
 	parsed.RUs, _ = strconv.ParseFloat(resp.Header.Get(HEADER_REQUEST_CHARGE), 64)
+	parsed.StatusCode = resp.StatusCode // Return the status code as well.
 	return
 }
 
@@ -77,9 +79,7 @@ func (c *Client) CreateDocument(ctx context.Context, dbName, colName string,
 	doc interface{}, ops CreateDocumentOptions) (*Resource, DocumentResponse, error) {
 
 	// add optional headers (after)
-	headers := map[string]string{}
-	var err error
-	headers, err = ops.AsHeaders()
+	headers, err := ops.AsHeaders()
 	if err != nil {
 		return nil, DocumentResponse{}, err
 	}
@@ -171,6 +171,8 @@ func (ops ReplaceDocumentOptions) AsHeaders() (map[string]string, error) {
 			return nil, err
 		}
 		headers[HEADER_PARTITIONKEY] = v
+	} else {
+		headers[HEADER_PARTITIONKEY] = "[]"
 	}
 
 	if ops.IndexingDirective != "" {
@@ -204,9 +206,7 @@ func (ops ReplaceDocumentOptions) AsHeaders() (map[string]string, error) {
 func (c *Client) ReplaceDocument(ctx context.Context, dbName, colName, id string,
 	doc interface{}, ops ReplaceDocumentOptions) (*Resource, DocumentResponse, error) {
 
-	headers := map[string]string{}
-	var err error
-	headers, err = ops.AsHeaders()
+	headers, err := ops.AsHeaders()
 	if err != nil {
 		return nil, DocumentResponse{}, err
 	}

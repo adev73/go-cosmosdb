@@ -3,8 +3,9 @@ package cosmosapi
 import (
 	"context"
 	"fmt"
-	"github.com/pkg/errors"
 	"net/http"
+
+	"github.com/pkg/errors"
 )
 
 type CreateCollectionOptions struct {
@@ -36,7 +37,7 @@ func (colOps CreateCollectionOptions) asHeaders() (map[string]string, error) {
 	}
 
 	if colOps.OfferType != "" {
-		headers[HEADER_OFFER_TYPE] = fmt.Sprintf("%s", colOps.OfferType)
+		headers[HEADER_OFFER_TYPE] = fmt.Sprint(colOps.OfferType)
 	}
 
 	return headers, nil
@@ -63,7 +64,7 @@ func (c *Client) CreateCollection(
 	}
 
 	if colOps.OfferType != "" {
-		headers[HEADER_OFFER_TYPE] = fmt.Sprintf("%s", colOps.OfferType)
+		headers[HEADER_OFFER_TYPE] = fmt.Sprint(colOps.OfferType)
 	}
 
 	link := CreateCollLink(dbName, "")

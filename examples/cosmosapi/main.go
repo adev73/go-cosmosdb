@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/adev73/go-cosmosdb/cosmosapi"
 	"github.com/kelseyhightower/envconfig"
 	"github.com/pkg/errors"
-	"github.com/vippsas/go-cosmosdb/cosmosapi"
 )
 
 type config struct {

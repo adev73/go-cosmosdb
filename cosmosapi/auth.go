@@ -19,9 +19,8 @@ type AuthorizationPayload struct {
 // variables. The returned string can then be used to make the authentication
 // header using `authHeader`.
 func signedPayload(verb, link, date, key string) (string, error) {
-	if strings.HasPrefix(link, "/") == true {
-		link = link[1:]
-	}
+
+	link = strings.TrimPrefix(link, "/")
 
 	rLink, rType := resourceTypeFromLink(link)
 

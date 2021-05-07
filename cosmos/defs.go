@@ -3,7 +3,7 @@ package cosmos
 import (
 	"context"
 
-	"github.com/vippsas/go-cosmosdb/cosmosapi"
+	"github.com/adev73/go-cosmosdb/cosmosapi"
 )
 
 type BaseModel cosmosapi.Resource

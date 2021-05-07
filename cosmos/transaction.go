@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"time"
 
+	cosmosapi "github.com/adev73/go-cosmosdb/cosmosapi"
 	"github.com/pkg/errors"
-	cosmosapi "github.com/vippsas/go-cosmosdb/cosmosapi"
 )
 
 // Transaction is simply a wrapper around Session which unlocks some of

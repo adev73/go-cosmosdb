@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/vippsas/go-cosmosdb/cosmosapi"
 	"io/ioutil"
 	"os"
+
+	"github.com/adev73/go-cosmosdb/cosmosapi"
 )
 
 // Format a JavaScript-file for inline use in a JSON file.
