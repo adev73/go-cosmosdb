@@ -4,16 +4,17 @@ package readfeed
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
-	"github.com/vippsas/go-cosmosdb/cosmos"
-	"github.com/vippsas/go-cosmosdb/cosmostest"
-	"gopkg.in/yaml.v2"
 	"log"
 	"math/rand"
 	"os"
 	"path/filepath"
 	"strconv"
 	"testing"
+
+	"github.com/adev73/go-cosmosdb/cosmos"
+	"github.com/adev73/go-cosmosdb/cosmostest"
+	"github.com/stretchr/testify/assert"
+	"gopkg.in/yaml.v2"
 )
 
 var collection cosmos.Collection
@@ -144,7 +145,7 @@ func (s *scenario) whenNDocumentsAreInsertedOnDifferentPartitions(n int) *scenar
 	for i := 0; i < n; i++ {
 		currentId += 1
 		partitionKey := strconv.Itoa(rand.Intn(100000000))
-		s.whenDocumentIsInserted(aDocument(string(currentId), partitionKey, "a text"))
+		s.whenDocumentIsInserted(aDocument(fmt.Sprint(currentId), partitionKey, "a text"))
 	}
 	return s
 }

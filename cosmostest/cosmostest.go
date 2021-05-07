@@ -20,12 +20,13 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
+	"net/http"
+
+	"github.com/adev73/go-cosmosdb/cosmos"
+	"github.com/adev73/go-cosmosdb/cosmosapi"
+	"github.com/adev73/go-cosmosdb/logging"
 	"github.com/gofrs/uuid"
 	"github.com/pkg/errors"
-	"github.com/vippsas/go-cosmosdb/cosmos"
-	"github.com/vippsas/go-cosmosdb/cosmosapi"
-	"github.com/vippsas/go-cosmosdb/logging"
-	"net/http"
 )
 
 type Config struct {

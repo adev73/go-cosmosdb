@@ -10,9 +10,10 @@ import (
 	"testing"
 
 	"encoding/json"
+
+	"github.com/adev73/go-cosmosdb/cosmosapi"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
-	"github.com/vippsas/go-cosmosdb/cosmosapi"
 )
 
 //

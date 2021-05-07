@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"reflect"
 
+	"github.com/adev73/go-cosmosdb/cosmosapi"
 	"github.com/pkg/errors"
-	"github.com/vippsas/go-cosmosdb/cosmosapi"
 )
 
 const (

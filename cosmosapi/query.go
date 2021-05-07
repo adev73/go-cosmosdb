@@ -78,7 +78,11 @@ func (ops QueryDocumentsOptions) asHeaders() (map[string]string, error) {
 			return nil, err
 		}
 		headers[HEADER_PARTITIONKEY] = v
-	} else if ops.EnableCrossPartition {
+	} else {
+		headers[HEADER_PARTITIONKEY] = "[]"
+	}
+
+	if ops.EnableCrossPartition {
 		headers[HEADER_CROSSPARTITION] = "true"
 	}
 
@@ -98,7 +102,7 @@ func (ops QueryDocumentsOptions) asHeaders() (map[string]string, error) {
 		headers[HEADER_CONTINUATION] = ops.Continuation
 	}
 
-	if ops.EnableCrossPartition == true {
+	if ops.EnableCrossPartition {
 		headers[HEADER_CROSSPARTITION] = strconv.FormatBool(ops.EnableCrossPartition)
 	}
 

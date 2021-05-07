@@ -10,9 +10,9 @@ import (
 // from MS documentation
 const TestKey = "dsZQi3KtZmCv1ljt3VNWNm7sQUF1y5rJfC6kv5JiwvW0EndXdDku/dkKBp8/ufDToSxLzR4y+O/0H/t4bQtVNw=="
 
-type TestDoc struct {
-	id string
-}
+// type TestDoc struct {
+// 	id string
+// }
 
 // TestMakeAuthHeader test the example from the RestAPI documentation found
 // here https://docs.microsoft.com/en-us/rest/api/cosmos-db/access-control-on-cosmosdb-resources

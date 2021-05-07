@@ -84,7 +84,7 @@ func (r *GetPartitionKeyRangesResponse) parseHeaders(httpResponse *http.Response
 	r.SessionToken = httpResponse.Header.Get(HEADER_SESSION_TOKEN)
 	r.Continuation = httpResponse.Header.Get(HEADER_CONTINUATION)
 	r.Etag = httpResponse.Header.Get(HEADER_ETAG)
-	if _, ok := httpResponse.Header[HEADER_REQUEST_CHARGE]; ok {
+	if _, ok := httpResponse.Header[http.CanonicalHeaderKey(HEADER_REQUEST_CHARGE)]; ok {
 		requestCharge, err := strconv.ParseFloat(httpResponse.Header.Get(HEADER_REQUEST_CHARGE), 64)
 		if err != nil {
 			return errors.WithStack(err)
